@@ -7,8 +7,16 @@ class PipedriveClient
       new.activities(options)
     end
 
+    def deals(options = {})
+      new.deals(options)
+    end
+
     def users(options = {})
       new.users(options)
+    end
+
+    def user(id, options = {})
+      new.user(id, options)
     end
   end
 
@@ -16,17 +24,26 @@ class PipedriveClient
 
   end
 
-  def deals
-    get('/v1/deals').body
+  def deals(options)
+    get('/v1/deals', options)['data'] || []
   end
 
   def activities(options)
     get('/v1/activities', options)['data'] || []
   end
 
+  def activity(id, options)
+    get("/v1/activities/#{id}", options)['data'] || []
+  end
+
   def users(options)
     get('/v1/users', options)['data']
   end
+
+  def user(id, options)
+    get("/v1/users/#{id}", options)['data']
+  end
+
 
   def get(url, options = {})
     uri = "#{url}?api_token=#{api_key}"

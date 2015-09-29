@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Top Sales</title>
+  <style>
+    img {
+      border-radius: 100px;
+      width: 50px;
+    }
+    .sales-count {
+      font-size: x-large;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+<table>
+  <% @sales.each do |user_id, count| %>
+  <tr>
+    <td>
+      <img src="/users/<%= user_id %>/image"/>
+    </td>
+    <td>
+      <%= @users[user_id]['name'] %>
+    </td>
+    <td>
+      <span class="sales-count"><%= count %></span>
+    </td>
+  </tr>
+  <% end %>
+</table>
+</body>
+</html>

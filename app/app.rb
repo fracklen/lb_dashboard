@@ -9,7 +9,13 @@ class App < Sinatra::Application
   get '/activities' do
     content_type 'application/json'
     status 200
-    body "#{PipedriveClient.activities}"
+    body "#{PipedriveClient.activities.to_json}"
+  end
+
+  get '/activities/:id' do
+    content_type 'application/json'
+    status 200
+    body "#{PipedriveClient.activity(params[:id]).to_json}"
   end
 
   get '/activities/call_duration.html' do
