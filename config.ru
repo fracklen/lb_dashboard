@@ -12,5 +12,5 @@ end
 
 map "/" do
   use Rack::ShowExceptions
-  run Rack::Cascade.new([HealthCheckController, App, TopSales])
+  run Rack::Cascade.new([HealthCheckController, App, TopSales, EventsController])
 end

@@ -1,6 +1,8 @@
 img.sales-photo {
   border-radius: 100px;
-  width: 50px;
+  border: 1px solid #226622;
+  width: 70px;
+  margin-right: 10px;
 }
 .sales-count {
   font-size: x-large;

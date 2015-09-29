@@ -1,3 +1,8 @@
+source 'https://tB3Vqa765GyMQt6dxPtW@gem.fury.io/lokalebasen/' do
+  gem 'authority_client'
+  gem 'lbunny'
+end
+
 source 'http://rubygems.org'
 
 gem 'rack'
