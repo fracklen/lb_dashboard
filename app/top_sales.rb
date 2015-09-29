@@ -1,12 +1,26 @@
 require 'erubis'
 
 class TopSales < Sinatra::Application
-  get '/top-sales' do
+  helpers do
+    def h(text)
+      text.gsub("\n", '').gsub("\"", '\"')
+    end
+  end
+
+  get '/top-sales.html' do
     @sales = DealStatsService.aggregate
     @users = UserService.by_user_id
     content_type 'text/html'
     status 200
     body erb(:top_sales)
+  end
+
+  get '/top-sales.json' do
+    @sales = DealStatsService.aggregate
+    @users = UserService.by_user_id
+    content_type 'application/json'
+    status 200
+    body erb(:top_sales_json)
   end
 
   get '/users' do

@@ -1,0 +1,15 @@
+<table>
+  <% @sales.each do |user_id, count| %>
+  <tr>
+    <td>
+      <img class="sales-photo" src="<%= PipedriveClient.user(user_id)['icon_url'] %>"/>
+    </td>
+    <td>
+      <%= @users[user_id]['name'] %>
+    </td>
+    <td>
+      <span class="sales-count"><%= count %></span>
+    </td>
+  </tr>
+  <% end %>
+</table>

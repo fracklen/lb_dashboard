@@ -3,7 +3,7 @@
 <head>
   <title>Top Sales</title>
   <style>
-    img {
+    img.sales-photo {
       border-radius: 100px;
       width: 50px;
     }
@@ -14,20 +14,6 @@
   </style>
 </head>
 <body>
-<table>
-  <% @sales.each do |user_id, count| %>
-  <tr>
-    <td>
-      <img src="/users/<%= user_id %>/image"/>
-    </td>
-    <td>
-      <%= @users[user_id]['name'] %>
-    </td>
-    <td>
-      <span class="sales-count"><%= count %></span>
-    </td>
-  </tr>
-  <% end %>
-</table>
+<%= erb(:top_sales_table) %>
 </body>
 </html>
